@@ -1,0 +1,12 @@
+# Ignore the Notion subfolder (contains separate project)
+Notion/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Environment
+.env
+.vercel

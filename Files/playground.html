@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playground — Isha</title>
+  <meta name="description" content="A space where I explore ideas, interactions, and creative experiments." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ===== PLAYGROUND — EDITORIAL / BEHANCE-STYLE ===== */
+    .pg-editorial {
+      padding-top: 80px;
+      background: var(--white);
+      min-height: 100vh;
+    }
+
+    /* Hero */
+    .pg-hero {
+      padding: 5rem 2rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .pg-hero-left {
+      position: relative;
+    }
+
+    .pg-hero-label {
+      font-family: var(--font-grotesk);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1.5rem;
+    }
+
+    .pg-hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    .pg-hero-desc {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      max-width: 480px;
+    }
+
+    /* Hero image — paper texture with torn edge */
+    .pg-hero-right {
+      position: relative;
+    }
+
+    .pg-hero-image {
+      background: var(--cream);
+      border: 2px solid var(--black);
+      box-shadow: 8px 8px 0 var(--black);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .pg-hero-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      pointer-events: none;
+      mix-blend-mode: multiply;
+    }
+
+    .pg-hero-image svg,
+    .pg-hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Torn edge detail */
+    .torn-strip {
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      right: 0;
+      height: 24px;
+      background: var(--white);
+      clip-path: polygon(
+        0% 50%, 3% 30%, 6% 55%, 9% 25%, 12% 50%, 15% 35%, 18% 55%, 21% 20%,
+        24% 50%, 27% 30%, 30% 55%, 33% 25%, 36% 50%, 39% 35%, 42% 55%, 45% 20%,
+        48% 50%, 51% 30%, 54% 55%, 57% 25%, 60% 50%, 63% 35%, 66% 55%, 69% 20%,
+        72% 50%, 75% 30%, 78% 55%, 81% 25%, 84% 50%, 87% 35%, 90% 55%, 93% 20%,
+        96% 50%, 100% 30%, 100% 100%, 0% 100%
+      );
+    }
+
+    /* Main content grid */
+    .pg-main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+    }
+
+    /* Category section */
+    .pg-category {
+      margin-bottom: 5rem;
+    }
+
+    .pg-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .pg-cat-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--black);
+    }
+
+    .pg-cat-title {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    /* Experiment cards in grid */
+    .pg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .pg-card {
+      display: block;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .pg-card-visual {
+      aspect-ratio: 4/3;
+      background: var(--cream);
+      border: 2px solid var(--black);
+      box-shadow: 5px 5px 0 var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .pg-card-visual::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      pointer-events: none;
+      mix-blend-mode: multiply;
+    }
+
+    .pg-card:hover .pg-card-visual {
+      transform: translate(-3px, -3px);
+      box-shadow: 8px 8px 0 var(--black);
+    }
+
+    .pg-card-info {
+      padding: 1.25rem 0;
+    }
+
+    .pg-card-title {
+      font-family: var(--font-grotesk);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.35rem;
+      transition: color 0.2s ease;
+    }
+
+    .pg-card:hover .pg-card-title {
+      color: var(--red);
+    }
+
+    .pg-card-desc {
+      font-size: 0.85rem;
+      color: var(--text-tertiary);
+      line-height: 1.5;
+    }
+
+    /* Featured large card */
+    .pg-card-featured {
+      grid-column: span 2;
+    }
+
+    .pg-card-featured .pg-card-visual {
+      aspect-ratio: 16/9;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .pg-hero {
+        padding: 4rem 1.5rem 2.5rem;
+        gap: 3rem;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .pg-hero {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 3rem 1.5rem 2rem;
+      }
+      .pg-hero-right {
+        max-width: 450px;
+        margin: 0 auto;
+      }
+      .pg-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      .pg-card-featured {
+        grid-column: span 2;
+      }
+      .pg-card-featured .pg-card-visual {
+        aspect-ratio: 16/10;
+      }
+      .pg-cat-header {
+        margin-bottom: 1.5rem;
+      }
+      .pg-category {
+        margin-bottom: 3.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .pg-hero-title {
+        font-size: 2.5rem;
+      }
+      .pg-hero-desc {
+        font-size: 1.05rem;
+      }
+      .pg-cat-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .pg-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      .pg-card-featured {
+        grid-column: span 1;
+      }
+      .pg-card-featured .pg-card-visual {
+        aspect-ratio: 4/3;
+      }
+      .pg-main {
+        padding: 2rem 1.25rem 4rem;
+      }
+      .pg-hero {
+        padding: 2.5rem 1rem 1.5rem;
+      }
+      .pg-hero-title {
+        font-size: 2rem;
+      }
+      .pg-hero-desc {
+        font-size: 1rem;
+      }
+      .pg-card-title {
+        font-size: 0.9rem;
+      }
+      .pg-card-desc {
+        font-size: 0.8rem;
+      }
+      .pg-card-visual {
+        aspect-ratio: 4/3;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .pg-hero-title {
+        font-size: 1.75rem;
+      }
+      .pg-hero-label {
+        font-size: 0.7rem;
+      }
+      .pg-cat-title {
+        font-size: 1.35rem;
+      }
+      .pg-card-visual {
+        aspect-ratio: 3/2;
+      }
+    }
+  </style>
+</head>
+<body class="pg-editorial">
+  <script>if(history.scrollRestoration){history.scrollRestoration='manual';}window.scrollTo(0,0);</script>
+  <div class="noise-overlay"></div>
+  <div class="grain-texture"></div>
+
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">Isha<span class="logo-dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="playground.html">Playground</a></li>
+        <li><a href="index.html#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="pg-hero">
+    <div class="pg-hero-left">
+      <div class="pg-hero-label">Experiments &amp; Side Projects</div>
+      <h1 class="pg-hero-title">Playground</h1>
+      <p class="pg-hero-desc">A curated collection of motion studies, interaction experiments, and visual explorations. Each piece is a small question I asked myself — what if?</p>
+    </div>
+    <div class="pg-hero-right">
+      <div class="pg-hero-image">
+        <svg viewBox="0 0 500 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="500" height="380" fill="#EDE8E0"/>
+          <rect x="40" y="40" width="420" height="300" rx="12" stroke="#1A1A1A" stroke-width="2" fill="#F8F7F4"/>
+          <rect x="60" y="70" width="180" height="140" rx="8" fill="#E63946" opacity="0.15"/>
+          <rect x="260" y="70" width="180" height="100" rx="8" fill="#457B9D" opacity="0.15"/>
+          <rect x="60" y="230" width="120" height="80" rx="8" fill="#2A9D8F" opacity="0.15"/>
+          <rect x="200" y="230" width="240" height="80" rx="8" fill="#F4A261" opacity="0.15"/>
+          <circle cx="140" cy="140" r="30" stroke="#E63946" stroke-width="2" fill="none"/>
+          <rect x="290" y="100" width="60" height="60" rx="4" stroke="#457B9D" stroke-width="2" fill="none" transform="rotate(15 320 130)"/>
+          <path d="M80 270 L120 290 L100 310 Z" stroke="#2A9D8F" stroke-width="2" fill="none"/>
+          <rect x="260" y="260" width="100" height="8" rx="4" fill="#1A1A1A" opacity="0.2"/>
+          <rect x="260" y="280" width="80" height="8" rx="4" fill="#1A1A1A" opacity="0.15"/>
+        </svg>
+        <div class="torn-strip"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pg-main">
+
+    <!-- Motion -->
+    <section class="pg-category">
+      <div class="pg-cat-header">
+        <h2 class="pg-cat-title">Motion</h2>
+      </div>
+      <div class="pg-grid">
+
+        <div class="pg-card pg-card-featured">
+          <div class="pg-card-visual">
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+              <rect x="30" y="30" width="60" height="60" rx="8" fill="#E63946" opacity="0.8">
+                <animateTransform attributeName="transform" type="translate" values="0,0; 0,-18; 0,0" dur="3s" repeatCount="indefinite"/>
+                <animateTransform attributeName="transform" type="rotate" values="0 60 60; 6 60 60; 0 60 60" dur="3s" repeatCount="indefinite" additive="sum"/>
+              </rect>
+            </svg>
+          </div>
+          <div class="pg-card-info">
+            <h3 class="pg-card-title">Floating Shapes</h3>
+            <p class="pg-card-desc">Gentle floating animation with CSS keyframes and easing curves that feel weightless.</p>
+          </div>
+        </div>
+
+        <div class="pg-card">
+          <div class="pg-card-visual">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <circle cx="40" cy="40" r="28" fill="#457B9D" opacity="0.7">
+                <animate attributeName="r" values="24;32;24" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2s" repeatCount="indefinite"/>
+              </circle>
+            </svg>
+          </div>
+          <div class="pg-card-info">
+            <h3 class="pg-card-title">Pulse Effect</h3>
+            <p class="pg-card-desc">Subtle breathing animation that draws attention without distraction.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Typography -->
+    <section class="pg-category">
+      <div class="pg-cat-header">
+        <h2 class="pg-cat-title">Typography</h2>
+      </div>
+      <div class="pg-grid">
+
+        <div class="pg-card">
+          <div class="pg-card-visual" style="flex-direction: column; gap: 0.5rem; background: #fff;">
+            <span style="font-family: var(--font-serif); font-size: 2.5rem; font-weight: 700; color: var(--text-primary); opacity: 0.2;">Aa</span>
+          </div>
+          <div class="pg-card-info">
+            <h3 class="pg-card-title">Variable Fonts</h3>
+            <p class="pg-card-desc">Exploring font weight transitions and optical sizing in real time.</p>
+          </div>
+        </div>
+
+        <div class="pg-card pg-card-featured">
+          <div class="pg-card-visual" style="background: #fff; flex-direction: column; align-items: flex-start; padding: 2rem; gap: 1rem;">
+            <div style="font-family: var(--font-sans); font-size: 1.2rem; font-weight: 300; color: var(--text-primary);">Light</div>
+            <div style="font-family: var(--font-sans); font-size: 1.4rem; font-weight: 500; color: var(--text-primary);">Medium</div>
+            <div style="font-family: var(--font-sans); font-size: 1.6rem; font-weight: 700; color: var(--text-primary);">Bold</div>
+          </div>
+          <div class="pg-card-info">
+            <h3 class="pg-card-title">Weight Contrast</h3>
+            <p class="pg-card-desc">Playing with heavy and light weights for visual hierarchy and rhythm.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Interaction -->
+    <section class="pg-category">
+      <div class="pg-cat-header">
+        <h2 class="pg-cat-title">Interaction</h2>
+      </div>
+      <div class="pg-grid">
+
+        <div class="pg-card">
+          <div class="pg-card-visual">
+            <button style="padding: 0.7rem 1.75rem; background: var(--black); color: var(--white); border: none; font-family: var(--font-grotesk); font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 16px rgba(0,0,0,0.2)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">Hover Me</button>
+          </div>
+          <div class="pg-card-info">
+            <h3 class="pg-card-title">Button States</h3>
+            <p class="pg-card-desc">Tactile hover and click states that feel physical and responsive.</p>
+          </div>
+        </div>
+
+        <div class="pg-card">
+          <div class="pg-card-visual">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--yellow); position: relative;">
+              <div style="position: absolute; top: -10px; left: -10px; width: 70px; height: 70px; border-radius: 50%; border: 2px solid var(--yellow); opacity: 0.4; animation: pulseRing 2s ease-in-out infinite;"></div>
+            </div>
+          </div>
+          <div class="pg-card-info">
+            <h3 class="pg-card-title">Cursor Trail</h3>
+            <p class="pg-card-desc">Following cursor effect with fade and layered opacity transitions.</p>
+          </div>
+        </div>
+
+        <div class="pg-card">
+          <div class="pg-card-visual">
+            <div style="width: 52px; height: 28px; background: var(--text-tertiary); border-radius: 14px; position: relative; cursor: pointer; transition: background 0.3s;" onmouseover="this.style.background='var(--red)'" onmouseout="this.style.background='var(--text-tertiary)'">
+              <div style="width: 22px; height: 22px; background: #fff; border-radius: 50%; position: absolute; top: 3px; left: 3px; transition: transform 0.3s;"></div>
+            </div>
+          </div>
+          <div class="pg-card-info">
+            <h3 class="pg-card-title">Toggle Switch</h3>
+            <p class="pg-card-desc">Smooth animated toggle with satisfying snap interaction.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Visual -->
+    <section class="pg-category">
+      <div class="pg-cat-header">
+        <h2 class="pg-cat-title">Visual</h2>
+      </div>
+      <div class="pg-grid">
+
+        <div class="pg-card pg-card-featured">
+          <div class="pg-card-visual" style="padding: 2rem; gap: 2rem; flex-wrap: wrap;">
+            <div style="width: 100px; height: 100px; border-radius: 16px; background: linear-gradient(135deg, #E63946, #F4A261); box-shadow: 4px 6px 12px rgba(0,0,0,0.12);"></div>
+            <div style="width: 100px; height: 100px; border-radius: 16px; background: linear-gradient(135deg, #457B9D, #2A9D8F); box-shadow: 4px 6px 12px rgba(0,0,0,0.12);"></div>
+            <div style="width: 100px; height: 100px; border-radius: 16px; background: linear-gradient(135deg, #F4A261, #E63946); box-shadow: 4px 6px 12px rgba(0,0,0,0.12);"></div>
+          </div>
+          <div class="pg-card-info">
+            <h3 class="pg-card-title">Color Gradients</h3>
+            <p class="pg-card-desc">Soft, warm gradients that feel human and approachable.</p>
+          </div>
+        </div>
+
+        <div class="pg-card">
+          <div class="pg-card-visual">
+            <div style="width: 80px; height: 80px; background: var(--cream); border-radius: 12px; position: relative; overflow: hidden;">
+              <div style="position: absolute; inset: 0; background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'0.15\'/%3E%3C/svg%3E');"></div>
+            </div>
+          </div>
+          <div class="pg-card-info">
+            <h3 class="pg-card-title">Texture Overlay</h3>
+            <p class="pg-card-desc">Subtle grain and texture for depth without distraction.</p>
+          </div>
+        </div>
+
+        <div class="pg-card">
+          <div class="pg-card-visual" style="gap: 12px;">
+            <div style="width: 36px; height: 36px; background: #fff; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.08);"></div>
+            <div style="width: 36px; height: 36px; background: #fff; border-radius: 6px; box-shadow: 0 4px 8px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);"></div>
+            <div style="width: 36px; height: 36px; background: #fff; border-radius: 6px; box-shadow: 0 8px 16px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.08);"></div>
+          </div>
+          <div class="pg-card-info">
+            <h3 class="pg-card-title">Shadow System</h3>
+            <p class="pg-card-desc">Layered shadows creating depth and hierarchy.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <style>
+    @keyframes pulseRing {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.4); opacity: 0; }
+    }
+  </style>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <span class="footer-logo">Isha<span class="logo-dot">.</span></span>
+        <p>© 2026 Isha — I love Blue</p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-shapes">
+          <div class="shape shape-circle" style="--color: var(--red); width: 20px; height: 20px;"></div>
+          <div class="shape shape-triangle" style="--color: var(--yellow); width: 16px; height: 16px;"></div>
+          <div class="shape shape-square" style="--color: var(--blue); width: 20px; height: 20px;"></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
