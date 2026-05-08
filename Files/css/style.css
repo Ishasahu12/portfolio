@@ -1699,8 +1699,9 @@ footer {
 /* Large Phones / Mobile */
 @media (max-width: 768px) {
   .hero-content {
-    padding: 2.25rem 1.25rem 1.75rem;
-    gap: 1.4rem;
+    padding: 2.25rem 1.25rem 2.5rem;
+    gap: 1.6rem;
+    min-height: calc(100vh - 120px);
   }
   .hero-left {
     order: 1;
@@ -1711,8 +1712,8 @@ footer {
   }
   .hero-right {
     order: 2;
-    max-width: 220px;
-    margin: 0.6rem auto 0;
+    max-width: 260px;
+    margin: 0.75rem auto 0;
   }
   .hero-label {
     margin-bottom: 0.75rem;
@@ -1722,17 +1723,17 @@ footer {
     font-size: 0.65rem;
   }
   .hero-title {
-    font-size: 2rem;
-    line-height: 1.2;
-    margin-bottom: 0.95rem;
+    font-size: 2.35rem;
+    line-height: 1.15;
+    margin-bottom: 1rem;
   }
   .hero-title .title-line {
     display: inline;
   }
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.6;
-    margin: 0 auto 1.25rem;
+    margin: 0 auto 1.4rem;
     max-width: 100%;
     padding: 0;
   }
@@ -1741,8 +1742,8 @@ footer {
     margin-bottom: 0;
   }
   .hero-cta {
-    padding: 0.9rem 1.7rem;
-    font-size: 0.95rem;
+    padding: 1rem 1.9rem;
+    font-size: 1rem;
   }
   .hero-bg-shape {
     width: 350px;
@@ -1752,15 +1753,15 @@ footer {
     opacity: 0.08;
   }
   .guitar-container {
-    width: 190px;
-    height: 285px;
+    width: 240px;
+    height: 360px;
   }
   .guitar-svg {
-    width: 190px;
-    height: 285px;
+    width: 240px;
+    height: 360px;
   }
   .guitar-string {
-    stroke-width: 2.2;
+    stroke-width: 2.6;
   }
   .tap-to-play {
     font-size: 0.65rem;
@@ -1843,8 +1844,9 @@ footer {
     font-size: 1.25rem;
   }
   .hero-content {
-    padding: 2rem 1.25rem 1.5rem;
-    gap: 1.15rem;
+    padding: 2rem 1.25rem 2.25rem;
+    gap: 1.35rem;
+    min-height: calc(100vh - 110px);
   }
   .hero-left {
     max-width: 100%;
@@ -1854,14 +1856,14 @@ footer {
     margin-bottom: 0.625rem;
   }
   .hero-title {
-    font-size: 1.8rem;
-    line-height: 1.25;
+    font-size: 2.1rem;
+    line-height: 1.18;
     margin-bottom: 0.85rem;
   }
   .hero-subtitle {
-    font-size: 0.98rem;
+    font-size: 1.05rem;
     line-height: 1.6;
-    margin-bottom: 1.1rem;
+    margin-bottom: 1.25rem;
     padding: 0;
   }
   .hero-actions {
@@ -1873,24 +1875,24 @@ footer {
     width: 100%;
     text-align: center;
     justify-content: center;
-    padding: 0.85rem 1.25rem;
-    font-size: 0.9rem;
+    padding: 0.95rem 1.25rem;
+    font-size: 0.95rem;
   }
   .hero-right {
-    max-width: 190px;
-    margin-top: 0.45rem;
+    max-width: 230px;
+    margin-top: 0.55rem;
   }
   .guitar-container {
-    width: 175px;
-    height: 260px;
+    width: 210px;
+    height: 315px;
     transform: rotate(-2deg);
   }
   .guitar-svg {
-    width: 175px;
-    height: 260px;
+    width: 210px;
+    height: 315px;
   }
   .guitar-string {
-    stroke-width: 2.4;
+    stroke-width: 2.8;
   }
   .tap-to-play {
     font-size: 0.55rem;
@@ -1949,34 +1951,35 @@ footer {
 /* Small Phones */
 @media (max-width: 480px) {
   .hero-content {
-    padding: 1.75rem 1rem 1.4rem;
-    gap: 1rem;
+    padding: 1.8rem 1rem 2rem;
+    gap: 1.2rem;
+    min-height: calc(100vh - 100px);
   }
   .hero-title {
-    font-size: 1.65rem;
-    line-height: 1.25;
+    font-size: 1.95rem;
+    line-height: 1.18;
     margin-bottom: 0.85rem;
   }
   .hero-subtitle {
-    font-size: 0.92rem;
+    font-size: 1rem;
     line-height: 1.6;
-    margin-bottom: 1.05rem;
+    margin-bottom: 1.2rem;
   }
   .hero-right {
-    max-width: 175px;
-    margin-top: 0.35rem;
+    max-width: 210px;
+    margin-top: 0.45rem;
   }
   .guitar-container {
-    width: 160px;
-    height: 240px;
+    width: 195px;
+    height: 292px;
     transform: rotate(-2deg);
   }
   .guitar-svg {
-    width: 160px;
-    height: 240px;
+    width: 195px;
+    height: 292px;
   }
   .guitar-string {
-    stroke-width: 2.5;
+    stroke-width: 2.9;
   }
   .tap-to-play {
     display: none;
