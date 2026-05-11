@@ -1370,6 +1370,42 @@ footer {
   padding: 0 2rem;
 }
 
+/* Step Labels & Pills in cs-content */
+.cs-step-label {
+  font-family: var(--font-grotesk);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.5rem;
+}
+
+.cs-pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.cs-pill {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  font-family: var(--font-grotesk);
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--yellow);
+  color: var(--black);
+  border: 1px solid var(--black);
+}
+
+/* Bento Placeholder */
+.bento-placeholder {
+  background: var(--cream);
+  border: 2px dashed rgba(0,0,0,0.12);
+  min-height: 200px;
+}
+
 .cs-hero-image-inner {
   background: var(--cream);
   border: 2px solid var(--black);
