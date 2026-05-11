@@ -1399,6 +1399,15 @@ footer {
   border: 1px solid var(--black);
 }
 
+.cs-tag-list {
+  font-family: var(--font-grotesk);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-top: 0.5rem;
+}
+
 /* Bento Placeholder */
 .bento-placeholder {
   background: var(--cream);
