@@ -1410,9 +1410,23 @@ footer {
 
 /* Bento Placeholder */
 .bento-placeholder {
-  background: var(--cream);
-  border: 2px dashed rgba(0,0,0,0.12);
+  background: linear-gradient(145deg, #f7f6f3 0%, #ede8e0 100%);
+  border: 1.5px solid rgba(0,0,0,0.08);
   min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.bento-placeholder::after {
+  content: '';
+  width: 56px;
+  height: 56px;
+  background: rgba(0,0,0,0.04);
+  border: 1.5px solid rgba(0,0,0,0.08);
+  border-radius: 50%;
+  display: block;
 }
 
 .cs-hero-image-inner {
