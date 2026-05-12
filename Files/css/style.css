@@ -1215,10 +1215,6 @@ footer {
   min-height: 100vh;
 }
 
-.case-study-page nav {
-  border-bottom: none;
-}
-
 /* Hero Section */
 .cs-hero {
   padding: 4rem 2rem 2rem;
@@ -1406,6 +1402,19 @@ footer {
   background: var(--black);
   color: var(--white);
   letter-spacing: 0.02em;
+}
+
+.cs-meta-link {
+  font-family: var(--font-grotesk);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--red);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.cs-meta-link:hover {
+  color: var(--black);
 }
 
 /* Hero Image */
