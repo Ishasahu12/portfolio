@@ -1418,36 +1418,57 @@ footer {
   margin-top: 0.5rem;
 }
 
-/* Bento Placeholder */
-.bento-placeholder {
-  background: linear-gradient(145deg, #f7f6f3 0%, #ede8e0 100%);
-  border: 1.5px solid rgba(0,0,0,0.08);
-  min-height: 200px;
+/* Image Showcase - Editorial Layout */
+.cs-showcase {
+  max-width: 900px;
+  margin: 2rem auto 3rem;
+  padding: 0 2rem;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cs-showcase-row {
+  display: flex;
+  gap: 1.25rem;
   justify-content: center;
-  position: relative;
-  overflow: hidden;
 }
 
-.bento-placeholder::after {
-  content: '';
-  width: 64px;
-  height: 64px;
-  background: rgba(0,0,0,0.03);
-  border: 1.5px solid rgba(0,0,0,0.06);
-  border-radius: 50%;
+.cs-showcase-row--center {
+  justify-content: center;
+}
+
+.cs-showcase-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cs-showcase-item--lg {
+  width: 100%;
+  max-width: 700px;
+}
+
+.cs-showcase-item--md {
+  flex: 1;
+  max-width: 420px;
+}
+
+.cs-showcase-item img {
+  width: 100%;
+  height: auto;
   display: block;
-  transition: transform 0.3s ease, background 0.3s ease;
+  border: 1.5px solid rgba(0,0,0,0.08);
+  background: var(--cream);
 }
 
-.bento-placeholder:hover::after {
-  transform: scale(1.05);
-  background: rgba(0,0,0,0.05);
-}
-
-.bento-placeholder:hover {
-  border-color: rgba(0,0,0,0.12);
+.cs-showcase-caption {
+  font-family: var(--font-grotesk);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  letter-spacing: 0.02em;
+  padding-left: 0.125rem;
 }
 
 .cs-hero-image-inner {
@@ -2051,8 +2072,36 @@ footer {
   .cs-meta-col {
     padding: 1.25rem 1.5rem;
   }
+  .cs-showcase {
+    padding: 0 1.5rem;
+    gap: 1.25rem;
+  }
+  .cs-showcase-row {
+    gap: 1rem;
+  }
+  .cs-showcase-item--md {
+    max-width: 340px;
+  }
+  .cs-showcase-caption {
+    font-size: 0.65rem;
+  }
   .cs-meta-bar {
     padding: 1rem 1.25rem;
+  }
+  .cs-showcase {
+    padding: 0 1.25rem;
+    gap: 1rem;
+  }
+  .cs-showcase-row {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  .cs-showcase-item--md {
+    max-width: 100%;
+  }
+  .cs-showcase-item--lg {
+    max-width: 100%;
   }
   .cs-content {
     padding: 2rem 1.25rem;
@@ -2292,6 +2341,12 @@ footer {
   }
   .cs-bento--feature {
     grid-auto-rows: 220px;
+  }
+  .cs-showcase {
+    padding: 0 1rem;
+  }
+  .cs-showcase-caption {
+    font-size: 0.6rem;
   }
   .bento-2x2 { grid-column: span 1; grid-row: span 1; }
   .bento-2x1 { grid-column: span 1; grid-row: span 1; }
