@@ -1215,6 +1215,10 @@ footer {
   min-height: 100vh;
 }
 
+.case-study-page nav {
+  border-bottom: none;
+}
+
 /* Hero Section */
 .cs-hero {
   padding: 4rem 2rem 2rem;
