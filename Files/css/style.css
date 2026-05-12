@@ -1271,6 +1271,38 @@ footer {
   max-width: 600px;
 }
 
+.cs-hero-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding: 0.65rem 1.4rem;
+  font-family: var(--font-grotesk);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--black);
+  background: var(--white);
+  border: 1.5px solid var(--black);
+  box-shadow: 3px 3px 0 var(--black);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.cs-hero-live:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--black);
+}
+
+.cs-hero-live svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.cs-hero-live:hover svg {
+  transform: translate(2px, -2px);
+}
+
 /* Meta Bar */
 .cs-meta-bar {
   border-top: 1px solid rgba(0,0,0,0.1);
