@@ -1510,6 +1510,64 @@ footer {
   border-radius: 3px;
 }
 
+/* Compact image - side by side with text */
+.cs-image-compact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.cs-image-compact-inner {
+  background: #f5f4f0;
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.cs-image-compact-inner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+.cs-image-compact-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Bento layout - bottom aligned */
+.cs-image-bento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: end;
+}
+
+.cs-image-bento-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cs-image-bento-inner {
+  background: #f5f4f0;
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.02);
+  display: flex;
+  align-items: flex-end;
+}
+
+.cs-image-bento-inner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 3px;
+}
+
 .cs-hero-image-inner {
   background: var(--cream);
   border: 2px solid var(--black);
@@ -2131,6 +2189,15 @@ footer {
   .cs-image-pair {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+  .cs-image-compact {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .cs-image-bento {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
   }
   .cs-image-caption {
     font-size: 0.82rem;
