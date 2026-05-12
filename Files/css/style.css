@@ -1421,142 +1421,142 @@ footer {
 /* Image Showcase - Editorial Layout */
 .cs-images {
   max-width: 800px;
-  margin: 3rem auto;
+  margin: 2.5rem auto;
   padding: 0 2rem;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1.75rem;
 }
 
 .cs-images-header {
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .cs-images-header h3 {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: var(--black);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
 }
 
 .cs-images-header p {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 /* Feature image - single centered */
 .cs-image-feature {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.4rem;
 }
 
 .cs-image-feature-inner {
   background: #f5f4f0;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.03);
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.05);
 }
 
 .cs-image-feature-inner img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 .cs-image-label {
   font-family: var(--font-grotesk);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 600;
   color: var(--red);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .cs-image-caption {
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
 /* Two-up image pair */
 .cs-image-pair {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .cs-image-pair-item {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.35rem;
 }
 
 .cs-image-pair-inner {
   background: #f5f4f0;
-  border-radius: 6px;
-  padding: 1rem;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.02);
+  border-radius: 5px;
+  padding: 0.75rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
 }
 
 .cs-image-pair-inner img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 /* Compact image - side by side with text */
 .cs-image-compact {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.5rem;
   align-items: center;
 }
 
 .cs-image-compact-inner {
   background: #f5f4f0;
-  border-radius: 8px;
-  padding: 1.25rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.03);
+  border-radius: 6px;
+  padding: 0.875rem;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.05);
 }
 
 .cs-image-compact-inner img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 .cs-image-compact-text {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.35rem;
 }
 
 /* Bento layout - bottom aligned */
 .cs-image-bento {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 1.25rem;
   align-items: end;
 }
 
 .cs-image-bento-item {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.35rem;
 }
 
 .cs-image-bento-inner {
   background: #f5f4f0;
-  border-radius: 6px;
-  padding: 1rem;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.02);
+  border-radius: 5px;
+  padding: 0.75rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
   display: flex;
   align-items: flex-end;
 }
@@ -1565,7 +1565,7 @@ footer {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .cs-hero-image-inner {
@@ -2184,19 +2184,19 @@ footer {
   }
   .cs-images {
     padding: 0 1.25rem;
-    gap: 2rem;
+    gap: 1.5rem;
   }
   .cs-image-pair {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.25rem;
   }
   .cs-image-compact {
     grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 1rem;
   }
   .cs-image-bento {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.25rem;
     align-items: start;
   }
   .cs-image-caption {
@@ -2449,7 +2449,7 @@ footer {
   }
   .cs-images {
     padding: 0 1rem;
-    gap: 2rem;
+    gap: 1.25rem;
   }
   .cs-images-header h3 {
     font-size: 1.2rem;
