@@ -1455,16 +1455,17 @@ footer {
 }
 
 .cs-image-feature-inner {
-  background: var(--cream);
+  background: #f5f4f0;
   border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.03);
 }
 
 .cs-image-feature-inner img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 4px;
 }
 
 .cs-image-label {
@@ -1496,16 +1497,17 @@ footer {
 }
 
 .cs-image-pair-inner {
-  background: var(--cream);
+  background: #f5f4f0;
   border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.03);
+  padding: 1rem;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.02);
 }
 
 .cs-image-pair-inner img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 3px;
 }
 
 .cs-hero-image-inner {
