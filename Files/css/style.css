@@ -2633,35 +2633,21 @@ footer {
   overflow-y: auto;
   padding: 1.5rem;
   flex: 1;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-  gap: 1.5rem;
-  align-content: start;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .vis-lightbox-item {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  break-inside: avoid;
 }
 .vis-lightbox-item img {
   width: 100%;
   height: auto;
   display: block;
   border: 1px solid rgba(0,0,0,0.08);
-  transition: transform 0.2s ease;
-}
-.vis-lightbox-item:hover img {
-  transform: scale(1.01);
-}
-.vis-lightbox-item .vis-label {
-  font-family: var(--font-grotesk);
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: var(--red);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 
 .vis-lightbox-empty {
@@ -2673,14 +2659,23 @@ footer {
   font-family: var(--font-grotesk);
 }
 
+.vis-lightbox-item .vis-label {
+  font-family: var(--font-grotesk);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--red);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 @media (max-width: 600px) {
   .vis-lightbox-panel {
     width: 95vw;
     max-height: 95vh;
   }
   .vis-lightbox-body {
-    grid-template-columns: 1fr;
     padding: 1rem;
+    gap: 1.25rem;
   }
   .vis-lightbox-header {
     padding: 0.75rem 1rem;
