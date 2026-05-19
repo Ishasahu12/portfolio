@@ -71,6 +71,14 @@
     </div>
   </header>
 
+  <!-- Visuals Trigger -->
+  <div style="max-width: 1200px; margin: 2rem auto 0; padding: 0 2rem;">
+    <a href="#" class="vis-trigger" role="button">
+      <svg viewBox="0 0 16 16" fill="none"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/><circle cx="5.5" cy="6.5" r="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M1.5 10.5l3-2.5 2.5 2 4-3.5 3.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Visuals of this website
+    </a>
+  </div>
+
   <!-- Content -->
   <main class="cs-content">
 
@@ -150,6 +158,22 @@
     </a>
   </div>
 
+  <!-- Visuals Lightbox -->
+  <div class="vis-lightbox" role="dialog" aria-modal="true" aria-label="Visuals gallery">
+    <div class="vis-lightbox-overlay"></div>
+    <div class="vis-lightbox-panel">
+      <div class="vis-lightbox-header">
+        <h3>Visuals</h3>
+        <button class="vis-lightbox-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="vis-lightbox-body"></div>
+    </div>
+  </div>
+
+  <script id="vis-data" type="application/json">
+    []
+  </script>
+
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -165,5 +189,7 @@
       </div>
     </div>
   </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

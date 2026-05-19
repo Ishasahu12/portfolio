@@ -356,6 +356,68 @@ if (history.scrollRestoration) {
 }
 window.scrollTo(0, 0);
 
+// ===== VISUALS LIGHTBOX =====
+function initVisualsLightbox() {
+  const trigger = document.querySelector('.vis-trigger');
+  if (!trigger) return;
+
+  const lightbox = document.querySelector('.vis-lightbox');
+  const overlay = lightbox.querySelector('.vis-lightbox-overlay');
+  const closeBtn = lightbox.querySelector('.vis-lightbox-close');
+  const body = lightbox.querySelector('.vis-lightbox-body');
+  const titleEl = lightbox.querySelector('.vis-lightbox-header h3');
+
+  let images = [];
+
+  // Read images from JSON script block
+  const dataScript = document.getElementById('vis-data');
+  if (dataScript) {
+    try {
+      images = JSON.parse(dataScript.textContent);
+    } catch (e) {
+      console.warn('Visuals lightbox: invalid JSON data');
+    }
+  }
+
+  // Hide trigger if no images
+  if (!images.length) {
+    trigger.style.display = 'none';
+    return;
+  }
+
+  trigger.style.display = 'inline-flex';
+
+  function open() {
+    body.innerHTML = images.map((img, i) => `
+      <div class="vis-lightbox-item">
+        <img src="${img.src}" alt="${img.alt || ''}" loading="${i < 4 ? 'eager' : 'lazy'}" />
+        ${img.label ? `<span class="vis-label">${img.label}</span>` : ''}
+      </div>
+    `).join('');
+    lightbox.classList.add('vis-lightbox--open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    lightbox.classList.remove('vis-lightbox--open');
+    document.body.style.overflow = '';
+  }
+
+  trigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    open();
+  });
+
+  overlay.addEventListener('click', close);
+  closeBtn.addEventListener('click', close);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('vis-lightbox--open')) {
+      close();
+    }
+  });
+}
+
 // ===== INIT =====
 document.addEventListener("DOMContentLoaded", () => {
   initSmoothScroll();
@@ -365,6 +427,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initParallaxShapes();
   initHeroParallax();
   initCustomCursor();
+  initVisualsLightbox();
 
   // Guitar audio
   const guitar = new GuitarAudio();
