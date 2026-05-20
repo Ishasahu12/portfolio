@@ -394,7 +394,7 @@ function initVisualsLightbox() {
       }
       return `
         <div class="vis-lightbox-item">
-          <img src="${img.src}" alt="${img.alt || ''}" loading="lazy" />
+          <img src="${img.src}" alt="${img.alt || ''}" loading="lazy" decoding="async" />
           ${img.label ? `<span class="vis-label">${img.label}</span>` : ''}
         </div>
       `;
