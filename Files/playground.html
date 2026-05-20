@@ -259,10 +259,19 @@
     }
 
     @media (max-width: 600px) {
-      .pg-grid {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
+      .pg-hero-title {
+        font-size: 2.5rem;
       }
+      .pg-hero-desc {
+        font-size: 1.05rem;
+      }
+      .pg-category {
+        margin-bottom: 2.5rem;
+      }
+      .pg-cat-title {
+        font-size: 1.5rem;
+      }
+    }
       .pg-card-featured {
         grid-column: span 1;
       }
@@ -316,11 +325,15 @@
   <nav>
     <div class="nav-container">
       <a href="index.html" class="nav-logo">Isha<span class="logo-dot">.</span></a>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
       <ul class="nav-links">
         <li><a href="index.html#work">Work</a></li>
         <li><a href="playground.html">Playground</a></li>
         <li><a href="index.html#about">About</a></li>
       </ul>
+      <div class="nav-overlay"></div>
     </div>
   </nav>
 

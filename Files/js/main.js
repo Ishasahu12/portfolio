@@ -290,7 +290,27 @@ function initParallaxShapes() {
           const yOffset = scrollY * speed;
           const currentTransform = shape.style.transform || '';
           shape.style.transform = `translateY(${yOffset}px)`;
-        });
+});
+
+// Hamburger nav toggle
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  const overlay = document.querySelector('.nav-overlay');
+  if (!toggle || !links) return;
+  const close = () => {
+    toggle.classList.remove('active');
+    links.classList.remove('open');
+    if (overlay) overlay.classList.remove('active');
+  };
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    links.classList.toggle('open');
+    if (overlay) overlay.classList.toggle('active');
+  });
+  links.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+  if (overlay) overlay.addEventListener('click', close);
+});
         ticking = false;
       });
       ticking = true;
