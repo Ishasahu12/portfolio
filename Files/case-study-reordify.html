@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reordify — Case Study</title>
+  <meta name="description" content="Inventory management platform for Shopify businesses" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="case-study-page">
+  <script>if(history.scrollRestoration){history.scrollRestoration='manual';}window.scrollTo(0,0);</script>
+  <div class="noise-overlay"></div>
+  <div class="grain-texture"></div>
+
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">Isha<span class="logo-dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="playground.html">Playground</a></li>
+        <li><a href="index.html#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="cs-hero">
+    <a href="index.html#work" class="cs-back">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4l-4 4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      All Projects
+    </a>
+    <div class="cs-hero-content">
+      <div class="cs-hero-label">Side Project / In Progress</div>
+      <h1 class="cs-hero-title">Reordify</h1>
+      <p class="cs-hero-desc">Inventory management platform built for Shopify businesses after Stocky's shutdown announcement.</p>
+    </div>
+    <div class="cs-meta-bar cs-meta-bar--v2">
+      <div class="cs-meta-inner cs-meta-inner--v2">
+        <div class="cs-meta-col">
+          <span class="cs-meta-label">Role</span>
+          <div class="cs-meta-pills">
+            <span class="cs-meta-pill">Product Designer</span>
+            <span class="cs-meta-pill">Frontend Developer</span>
+          </div>
+        </div>
+        <div class="cs-meta-col">
+          <span class="cs-meta-label">Duration</span>
+          <span class="cs-meta-value--large">Ongoing</span>
+        </div>
+        <div class="cs-meta-col">
+          <span class="cs-meta-label">Team</span>
+          <span class="cs-meta-value--large">Solo Project</span>
+        </div>
+        <div class="cs-meta-col">
+          <span class="cs-meta-label">Skills</span>
+          <div class="cs-meta-pills">
+            <span class="cs-meta-pill">UX Design</span>
+            <span class="cs-meta-pill">Design Systems</span>
+            <span class="cs-meta-pill">Dashboard</span>
+            <span class="cs-meta-pill">Data Viz</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Visuals Trigger -->
+  <div style="max-width: 1200px; margin: 2rem auto 0; padding: 0 2rem;">
+    <a href="#" class="vis-trigger" role="button">
+      <svg viewBox="0 0 16 16" fill="none"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/><circle cx="5.5" cy="6.5" r="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M1.5 10.5l3-2.5 2.5 2 4-3.5 3.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Visuals of this website
+    </a>
+  </div>
+
+  <!-- Content -->
+  <main class="cs-content">
+
+    <section class="cs-section">
+      <h2>Context</h2>
+      <p>I designed and built Reordify as a self-initiated inventory management platform for Shopify businesses after Shopify announced that Stocky, one of the most widely used inventory management tools in the ecosystem, would shut down in August 2026.</p>
+      <p>The goal with Reordify became very clear from the beginning: create a system that helps merchants understand inventory health, purchasing urgency, stock movement, and reorder decisions in a much calmer and more structured way.</p>
+    </section>
+
+    <section class="cs-section">
+      <h2>Core Architecture</h2>
+      <p>The project started with designing the core operational architecture, each page designed with a very specific operational purpose:</p>
+      <ul class="cs-list">
+        <li><mark>Dashboard</mark> — Central operational overview</li>
+        <li><mark>Inventory</mark> — Stock health and product visibility</li>
+        <li><mark>Reorder</mark> — Urgency and supplier planning</li>
+        <li><mark>Purchase Orders</mark> — Operational execution</li>
+        <li><mark>Analytics</mark> — Forecasting, trends, and demand behavior</li>
+        <li><mark>Settings</mark> — System configuration</li>
+      </ul>
+    </section>
+
+    <div class="cs-insight">
+      <p>Good product experiences are rarely about adding more information. The strongest improvements come from removing confusion.</p>
+    </div>
+
+    <section class="cs-section">
+      <h2>Rebuilding the Design System</h2>
+      <p>As the product evolved, the biggest challenge became system consistency. Different pages slowly started developing their own visual behavior. Cards looked different across pages. Graphs behaved differently. Typography hierarchy became inconsistent. AI insight sections started feeling disconnected from the rest of the interface.</p>
+      <p>I spent a large amount of time rebuilding the design system itself to make the entire product feel unified. I standardized:</p>
+      <ul class="cs-list">
+        <li>Typography scales</li>
+        <li>Spacing systems</li>
+        <li>Card structures</li>
+        <li>Semantic colors</li>
+        <li>Graph behaviors</li>
+        <li>Sidebar interactions</li>
+        <li>Button hierarchy</li>
+        <li>Navigation states</li>
+      </ul>
+      <p>This immediately improved the overall product experience because users no longer needed to re-learn interface patterns page by page.</p>
+    </section>
+
+    <section class="cs-section">
+      <h2>Dashboard & Semantic Cards</h2>
+      <p>The dashboard cards went through multiple iterations. Initially, they looked visually minimal, though they lacked urgency and scanning clarity. I later introduced semantic card backgrounds connected with inventory meaning:</p>
+      <ul class="cs-list">
+        <li><mark>Red</mark> for operational risks</li>
+        <li><mark>Amber</mark> for warnings</li>
+        <li><mark>Green</mark> for healthy movement</li>
+        <li><mark>Blue</mark> for neutral financial metrics</li>
+      </ul>
+      <p>The subtle background tints improved readability significantly and made important metrics easier to identify at a glance.</p>
+    </section>
+
+    <section class="cs-section">
+      <h2>Reorder & Purchase Order Flows</h2>
+      <p>The reorder and purchase order flows became some of the most important UX exercises throughout the project. The earlier versions relied heavily on tables. After testing the flows mentally from the perspective of a store owner, the experience felt operationally heavy and difficult to process quickly. Supplier selection, stock urgency, delivery timing, and purchasing decisions all felt disconnected from each other.</p>
+      <p>I redesigned the entire purchase workflow into clearer operational sections. Supplier selection now affects purchasable items dynamically. Lead times influence delivery expectations. Coverage information explains why products need to be reordered. Users can remove incompatible products before placing orders. Purchasing actions became easier to understand even for users without deep inventory management experience.</p>
+    </section>
+
+    <section class="cs-section">
+      <h2>AI Insights</h2>
+      <p>AI insights also went through several iterations:</p>
+      <ul class="cs-list">
+        <li><mark>Dashboard insights</mark> focus on operational summaries</li>
+        <li><mark>Inventory insights</mark> focus on stock health and movement behavior</li>
+        <li><mark>Reorder insights</mark> focus on purchasing actions and urgency</li>
+        <li><mark>Analytics insights</mark> focus on trends and forecasting patterns</li>
+      </ul>
+    </section>
+
+    <section class="cs-section">
+      <h2>Analytics & Data Visualization</h2>
+      <p>The analytics page required multiple redesigns. The first versions contained visually weak graphs and unclear hierarchy between metrics. I redesigned the graph system to respond differently based on date ranges. Short-term ranges use denser visual representations while longer ranges prioritize trend readability and forecasting clarity.</p>
+      <p>Even smaller interactions became extremely important throughout the process: persistent sidebar states, collapsible navigation, active-page highlighting, sticky purchase actions, responsive tables, graph responsiveness, and inventory error handling.</p>
+    </section>
+
+    <section class="cs-section">
+      <h2>Challenges & Learnings</h2>
+      <p>At one point, the inventory page completely failed during deployment because of rendering issues connected with reusable components and chart logic. Debugging these moments helped me understand how fragile product systems become once multiple operational flows start interacting with each other simultaneously.</p>
+      <p>One of the biggest lessons from building Reordify has been understanding how operational software depends heavily on clarity. Inventory systems directly influence purchasing decisions, stock movement, supplier coordination, and financial planning. Small UX inconsistencies create friction very quickly in these environments.</p>
+      <ul class="cs-list">
+        <li>How <mark>operational UX</mark> depends on clarity over complexity</li>
+        <li>How design system consistency prevents friction at scale</li>
+        <li>How small UX inconsistencies compound in operational tools</li>
+        <li>How <mark>system-level thinking</mark> improves product reliability</li>
+      </ul>
+    </section>
+
+    <section class="cs-section">
+      <h2>What's Next</h2>
+      <p>Reordify is still evolving. The current foundation now feels stable enough to expand into forecasting systems, smarter reorder intelligence, supplier management, and deeper Shopify integrations.</p>
+      <p>Building this project from scratch gave me a much deeper understanding of operational UX, system-level thinking, and designing products that users can depend on every day.</p>
+    </section>
+
+  </main>
+
+  <!-- Next Project -->
+  <div class="cs-next">
+    <div class="cs-next-label">Next Project</div>
+    <a href="case-study-paycheck.html">
+      Paycheck Stories
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <!-- Visuals Lightbox -->
+  <div class="vis-lightbox" role="dialog" aria-modal="true" aria-label="Visuals gallery">
+    <div class="vis-lightbox-overlay"></div>
+    <div class="vis-lightbox-panel">
+      <div class="vis-lightbox-header">
+        <h3>Visuals</h3>
+        <button class="vis-lightbox-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="vis-lightbox-body"></div>
+    </div>
+  </div>
+
+  <script id="vis-data" type="application/json">
+    []
+  </script>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <span class="footer-logo">Isha<span class="logo-dot">.</span></span>
+        <p>© 2026 Isha — I love Blue</p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-shapes">
+          <div class="shape shape-circle" style="--color: var(--red); width: 20px; height: 20px;"></div>
+          <div class="shape shape-triangle" style="--color: var(--yellow); width: 16px; height: 16px;"></div>
+          <div class="shape shape-square" style="--color: var(--blue); width: 20px; height: 20px;"></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
