@@ -388,12 +388,17 @@ function initVisualsLightbox() {
   trigger.style.display = 'inline-flex';
 
   function open() {
-    body.innerHTML = images.map((img, i) => `
-      <div class="vis-lightbox-item">
-        <img src="${img.src}" alt="${img.alt || ''}" loading="${i < 4 ? 'eager' : 'lazy'}" />
-        ${img.label ? `<span class="vis-label">${img.label}</span>` : ''}
-      </div>
-    `).join('');
+    body.innerHTML = images.map((img) => {
+      if (img.type === 'heading') {
+        return `<div class="vis-lightbox-heading">${img.text}</div>`;
+      }
+      return `
+        <div class="vis-lightbox-item">
+          <img src="${img.src}" alt="${img.alt || ''}" loading="lazy" />
+          ${img.label ? `<span class="vis-label">${img.label}</span>` : ''}
+        </div>
+      `;
+    }).join('');
     lightbox.classList.add('vis-lightbox--open');
     document.body.style.overflow = 'hidden';
   }
