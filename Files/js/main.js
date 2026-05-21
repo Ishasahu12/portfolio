@@ -375,10 +375,11 @@ function initVisualsLightbox() {
   if (!trigger) return;
 
   const lightbox = document.querySelector('.vis-lightbox');
+  if (!lightbox) return;
   const overlay = lightbox.querySelector('.vis-lightbox-overlay');
   const closeBtn = lightbox.querySelector('.vis-lightbox-close');
   const body = lightbox.querySelector('.vis-lightbox-body');
-  const titleEl = lightbox.querySelector('.vis-lightbox-header h3');
+  if (!overlay || !closeBtn || !body) return;
 
   let images = [];
 
@@ -401,19 +402,24 @@ function initVisualsLightbox() {
   trigger.style.display = 'inline-flex';
 
   function open() {
-    body.innerHTML = images.map((img) => {
-      if (img.type === 'heading') {
-        return `<div class="vis-lightbox-heading">${img.text}</div>`;
-      }
-      return `
-        <div class="vis-lightbox-item">
-          <img src="${img.src}" alt="${img.alt || ''}" loading="lazy" />
-          ${img.label ? `<span class="vis-label">${img.label}</span>` : ''}
-        </div>
-      `;
-    }).join('');
-    lightbox.classList.add('vis-lightbox--open');
-    document.body.style.overflow = 'hidden';
+    try {
+      body.innerHTML = images.map((img) => {
+        if (img.type === 'heading') {
+          return `<div class="vis-lightbox-heading">${img.text}</div>`;
+        }
+        return `
+          <div class="vis-lightbox-item">
+            <img src="${img.src}" alt="${img.alt || ''}" loading="lazy" />
+            ${img.label ? `<span class="vis-label">${img.label}</span>` : ''}
+          </div>
+        `;
+      }).join('');
+      lightbox.classList.add('vis-lightbox--open');
+      document.body.style.overflow = 'hidden';
+    } catch (err) {
+      close();
+      console.error('Visuals lightbox failed to open:', err);
+    }
   }
 
   function close() {
@@ -423,6 +429,7 @@ function initVisualsLightbox() {
 
   trigger.addEventListener('click', (e) => {
     e.preventDefault();
+    e.stopPropagation();
     open();
   });
 
@@ -434,6 +441,8 @@ function initVisualsLightbox() {
       close();
     }
   });
+
+  window.addEventListener('pageshow', close);
 }
 
 // ===== INIT =====
