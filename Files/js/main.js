@@ -205,11 +205,20 @@ class GuitarAudio {
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
+      const href = this.getAttribute("href");
+      if (!href || href === "#") return;
+
+      let target = null;
+      try {
+        target = document.querySelector(href);
+      } catch (err) {
+        return;
       }
+
+      if (!target) return;
+
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth" });
     });
   });
 }
@@ -279,6 +288,7 @@ function initParallaxShapes() {
   if (window.matchMedia('(pointer: coarse)').matches) return;
 
   const shapes = document.querySelectorAll('.floating-shapes .shape');
+  if (!shapes.length) return;
   let ticking = false;
 
   window.addEventListener('scroll', () => {
@@ -297,26 +307,6 @@ function initParallaxShapes() {
     }
   }, { passive: true });
 }
-
-// Hamburger nav toggle
-document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.querySelector('.nav-toggle');
-  const links = document.querySelector('.nav-links');
-  const overlay = document.querySelector('.nav-overlay');
-  if (!toggle || !links) return;
-  const close = () => {
-    toggle.classList.remove('active');
-    links.classList.remove('open');
-    if (overlay) overlay.classList.remove('active');
-  };
-  toggle.addEventListener('click', () => {
-    toggle.classList.toggle('active');
-    links.classList.toggle('open');
-    if (overlay) overlay.classList.toggle('active');
-  });
-  links.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
-  if (overlay) overlay.addEventListener('click', close);
-});
 
 // ===== MOUSE PARALLAX ON HERO =====
 function initHeroParallax() {
@@ -338,6 +328,9 @@ function initHeroParallax() {
 // ===== CUSTOM CURSOR =====
 function initCustomCursor() {
   if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  const hoverTargets = document.querySelectorAll('#work .index-card');
+  if (!hoverTargets.length) return;
 
   const cursor = document.createElement('div');
   cursor.className = 'custom-cursor';
@@ -364,7 +357,7 @@ function initCustomCursor() {
   animateCursor();
 
   // Hover states for index cards — ONLY in work section
-  document.querySelectorAll('#work .index-card').forEach(card => {
+  hoverTargets.forEach(card => {
     card.addEventListener('mouseenter', () => cursor.classList.add('custom-cursor--active'));
     card.addEventListener('mouseleave', () => cursor.classList.remove('custom-cursor--active'));
   });
@@ -414,7 +407,7 @@ function initVisualsLightbox() {
       }
       return `
         <div class="vis-lightbox-item">
-          <img src="${img.src}" alt="${img.alt || ''}" loading="lazy" decoding="async" />
+          <img src="${img.src}" alt="${img.alt || ''}" loading="lazy" />
           ${img.label ? `<span class="vis-label">${img.label}</span>` : ''}
         </div>
       `;
