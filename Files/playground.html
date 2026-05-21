@@ -635,7 +635,8 @@
   <script>
     (function() {
       const lazyVideos = Array.from(document.querySelectorAll('video.pg-lazy-video[data-src]'));
-      if (!lazyVideos.length) return;
+      const allLazyVideos = Array.from(document.querySelectorAll('video.pg-lazy-video'));
+      if (!allLazyVideos.length) return;
 
       const loadVideo = (video) => {
         if (!video || video.dataset.loaded === 'true') return;
@@ -645,23 +646,38 @@
         video.load();
       };
 
+      const playVideo = (video) => {
+        if (!video) return;
+        const playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(() => {});
+        }
+      };
+
       if (!('IntersectionObserver' in window)) {
-        lazyVideos.forEach(loadVideo);
+        allLazyVideos.forEach((video) => {
+          loadVideo(video);
+          playVideo(video);
+        });
         return;
       }
 
       const io = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          loadVideo(entry.target);
-          io.unobserve(entry.target);
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            loadVideo(video);
+            playVideo(video);
+            return;
+          }
+          video.pause();
         });
       }, {
         rootMargin: '300px 0px',
         threshold: 0.01
       });
 
-      lazyVideos.forEach((video) => io.observe(video));
+      allLazyVideos.forEach((video) => io.observe(video));
     })();
   </script>
 </body>
