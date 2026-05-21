@@ -290,7 +290,13 @@ function initParallaxShapes() {
           const yOffset = scrollY * speed;
           const currentTransform = shape.style.transform || '';
           shape.style.transform = `translateY(${yOffset}px)`;
-});
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
 
 // Hamburger nav toggle
 document.addEventListener('DOMContentLoaded', () => {
@@ -311,12 +317,6 @@ document.addEventListener('DOMContentLoaded', () => {
   links.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
   if (overlay) overlay.addEventListener('click', close);
 });
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
-}
 
 // ===== MOUSE PARALLAX ON HERO =====
 function initHeroParallax() {
