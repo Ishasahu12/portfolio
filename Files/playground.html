@@ -640,6 +640,11 @@
 
       const loadVideo = (video) => {
         if (!video || video.dataset.loaded === 'true') return;
+        const resumePlayback = () => playVideo(video);
+        video.addEventListener('loadeddata', resumePlayback);
+        video.addEventListener('canplay', resumePlayback);
+        video.addEventListener('waiting', resumePlayback);
+        video.addEventListener('stalled', resumePlayback);
         video.src = video.dataset.src;
         video.dataset.loaded = 'true';
         video.removeAttribute('data-src');
@@ -673,8 +678,8 @@
           video.pause();
         });
       }, {
-        rootMargin: '300px 0px',
-        threshold: 0.01
+        rootMargin: '450px 0px',
+        threshold: 0.05
       });
 
       allLazyVideos.forEach((video) => io.observe(video));
