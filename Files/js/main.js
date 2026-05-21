@@ -382,6 +382,7 @@ function initVisualsLightbox() {
   if (!overlay || !closeBtn || !body) return;
 
   let images = [];
+  let imageObserver = null;
 
   // Read images from JSON script block
   const dataScript = document.getElementById('vis-data');
@@ -401,19 +402,66 @@ function initVisualsLightbox() {
 
   trigger.style.display = 'inline-flex';
 
+  function loadDeferredImage(imgEl) {
+    if (!imgEl || imgEl.dataset.loaded === 'true') return;
+    const src = imgEl.dataset.src;
+    if (!src) return;
+    imgEl.src = src;
+    imgEl.dataset.loaded = 'true';
+    imgEl.removeAttribute('data-src');
+  }
+
+  function initDeferredImageLoading() {
+    if (imageObserver) {
+      imageObserver.disconnect();
+      imageObserver = null;
+    }
+
+    const deferred = body.querySelectorAll('img[data-src]');
+    if (!deferred.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      deferred.forEach(loadDeferredImage);
+      return;
+    }
+
+    imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const imgEl = entry.target;
+        loadDeferredImage(imgEl);
+        imageObserver.unobserve(imgEl);
+      });
+    }, {
+      root: body,
+      rootMargin: '300px 0px',
+      threshold: 0.01
+    });
+
+    deferred.forEach((imgEl) => imageObserver.observe(imgEl));
+  }
+
   function open() {
     try {
+      let imageIndex = 0;
       body.innerHTML = images.map((img) => {
         if (img.type === 'heading') {
           return `<div class="vis-lightbox-heading">${img.text}</div>`;
         }
+        const shouldPreloadNow = imageIndex < 2;
+        const srcAttr = shouldPreloadNow
+          ? `src="${img.src}"`
+          : `data-src="${img.src}"`;
+        imageIndex += 1;
         return `
           <div class="vis-lightbox-item">
-            <img src="${img.src}" alt="${img.alt || ''}" loading="lazy" />
+            <img ${srcAttr} alt="${img.alt || ''}" loading="lazy" decoding="async" />
             ${img.label ? `<span class="vis-label">${img.label}</span>` : ''}
           </div>
         `;
       }).join('');
+
+      initDeferredImageLoading();
       lightbox.classList.add('vis-lightbox--open');
       document.body.style.overflow = 'hidden';
     } catch (err) {
@@ -423,6 +471,10 @@ function initVisualsLightbox() {
   }
 
   function close() {
+    if (imageObserver) {
+      imageObserver.disconnect();
+      imageObserver = null;
+    }
     lightbox.classList.remove('vis-lightbox--open');
     document.body.style.overflow = '';
   }
